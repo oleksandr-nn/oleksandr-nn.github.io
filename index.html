@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INTITA University · Computer Science Student</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1c0a10; --panel:#2a1114; --line:#e8601c; --orange:#ff8a1f;
+  --gold:#ffc83d; --cream:#fff2b3; --ol:#6e2416;
+  --t:clamp(1.7rem,10vw,4.6rem);
+  /* banded gradient measured from the gif */
+  --bands:linear-gradient(180deg,#fff0a0 0 23%,#ffd664 23% 46%,#ffba46 46% 61.5%,#fa962e 61.5% 84.5%,#ee7624 84.5% 100%);
+}
+*{box-sizing:border-box;margin:0}
+html{background:var(--bg)}
+body{font-family:"Press Start 2P",ui-monospace,Consolas,monospace;color:var(--cream);
+  min-height:100vh;overflow-x:hidden;background:var(--bg);line-height:1.7}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9;
+  background:repeating-linear-gradient(180deg,rgba(0,0,0,.14) 0 1px,transparent 1px 4px)}
+
+/* ---------- HERO ---------- */
+.hero{container-type:inline-size;position:relative;--sh:260px;min-height:600px;padding:56px 20px var(--sh);text-align:center;overflow:hidden;
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg) 40%,#5a1d17 68%,#c2481a 88%,#f08a24 100%)}
+.logo{--t:clamp(1.7rem,10vw,4.6rem);position:relative;z-index:3;width:fit-content;max-width:100%;margin:0 auto;font-size:var(--t);line-height:1}
+/* size the title from the hero's own width, so it always fits */
+@supports (width:1cqw){.logo{--t:min(11cqw,9rem)}}
+.line{height:.1em;margin:.2em 0;background:#f07624;animation:lineP 1.76s steps(1,end) infinite}
+.name{font-size:1em;font-weight:400;line-height:1}
+.row{display:block;white-space:nowrap}
+.row.sub{font-size:.6em;margin-top:.22em}
+.L{position:relative;display:inline-block;color:transparent;line-height:1}
+.L::before,.L::after{content:attr(data-c);position:absolute;left:0;top:0;line-height:1}
+.L::before{color:var(--ol);
+  text-shadow:.07em 0 var(--ol),-.07em 0 var(--ol),0 .07em var(--ol),0 -.07em var(--ol),
+  .07em .07em var(--ol),-.07em -.07em var(--ol),.07em -.07em var(--ol),-.07em .07em var(--ol),
+  .14em .14em var(--ol),.07em .14em var(--ol),.14em .07em var(--ol)}
+.L::after{color:transparent;background:var(--bands) 0 0/100% .88em no-repeat;
+  -webkit-background-clip:text;background-clip:text}
+.fT::after{animation:offT 1.76s steps(1,end) infinite}
+.fV::after{animation:offV 1.76s steps(1,end) infinite}
+.fS::after{animation:offS 1.76s steps(1,end) infinite}
+.tag{position:relative;z-index:3;margin-top:30px;font-size:clamp(.6rem,2.4vw,.8rem);color:var(--gold);animation:rise .7s .4s both}
+.tag i{display:inline-block;width:.6em;height:1em;background:var(--gold);vertical-align:-.15em;margin-left:.3em;animation:blink 1s steps(1) infinite}
+
+.scene{position:absolute;left:0;right:0;bottom:0;height:var(--sh);z-index:1}
+.sun{position:absolute;left:68%;bottom:60px;width:clamp(110px,24vw,190px);aspect-ratio:1;border-radius:50%;
+  background:linear-gradient(180deg,var(--cream),var(--gold));
+  -webkit-mask:linear-gradient(#000,#000) top/100% 55% no-repeat,repeating-linear-gradient(180deg,#000 0 8px,transparent 8px 13px) bottom/100% 45% no-repeat;
+  mask:linear-gradient(#000,#000) top/100% 55% no-repeat,repeating-linear-gradient(180deg,#000 0 8px,transparent 8px 13px) bottom/100% 45% no-repeat;
+  box-shadow:0 0 60px rgba(255,200,70,.5);animation:sun 6s ease-in-out infinite alternate}
+.city{position:absolute;inset:auto 0 0;display:flex;align-items:flex-end;gap:3px;height:100%;overflow:hidden;justify-content:center}
+.b{flex:none;background:#2b1215;display:grid;gap:calc(6px*var(--k,1));padding:calc(8px*var(--k,1)) calc(6px*var(--k,1));align-content:start;border-top:3px solid #1d0b10}
+.w{width:calc(6px*var(--k,1));height:calc(8px*var(--k,1));background:#35191b}
+.w.on{background:var(--gold)}
+.w.tw{animation:twinkle 3s steps(1) infinite}
+
+/* ---------- CONTENT ---------- */
+main{max-width:680px;margin:0 auto;padding:0 20px 56px}
+.intro{margin-top:44px;background:var(--panel);border:3px solid var(--line);
+  box-shadow:inset 0 0 0 3px var(--bg),0 0 22px rgba(232,96,28,.35);text-align:left;overflow:hidden;
+  font-family:"VT323",ui-monospace,Consolas,monospace;font-size:clamp(1.05rem,3.6vw,1.5rem);line-height:1.5;
+  animation:rise .7s .7s both}
+.win{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--bg);border-bottom:3px solid var(--line);color:#a4653a;font-size:.85em}
+.win .d{width:.6em;height:.6em;background:var(--line)}
+.win b{margin-left:8px;font-weight:400}
+.intro pre{margin:0;padding:18px 16px 20px;overflow-x:auto;counter-reset:ln;white-space:normal;font:inherit}
+.ln{display:block;white-space:pre;counter-increment:ln;color:var(--cream)}
+.ln::before{content:counter(ln);display:inline-block;width:1.6em;margin-right:1em;text-align:right;color:#6b3a28}
+.t-k{color:#ff8a1f}.t-s{color:#ffd664}.t-c{color:#8a5a3c}.t-o{color:#ff5a3c}.t-b{color:#ffba46}.t-v{color:#fff0a0}
+.cur2{display:inline-block;width:.5em;height:1em;background:var(--gold);vertical-align:-.15em;margin-left:.1em;animation:blink 1s steps(1) infinite}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+.card{position:relative;padding:26px 14px 22px;background:var(--panel);border:3px solid var(--line);
+  box-shadow:inset 0 0 0 3px var(--bg);text-align:center;font-size:clamp(.55rem,2.3vw,.75rem);
+  transition:transform .2s steps(3),box-shadow .2s;animation:rise .7s both;animation-delay:calc(.9s + var(--i) * .18s)}
+.card::after{content:"";position:absolute;inset:-3px;border:3px solid currentColor;color:#fda83b;opacity:0;pointer-events:none}
+.card:hover::after{opacity:1;animation:cardNeon 1.76s steps(1,end) infinite;
+  box-shadow:0 0 6px currentColor,0 0 18px currentColor,0 0 42px rgba(255,138,31,.55),inset 0 0 16px rgba(255,138,31,.4)}
+.card:hover p{text-shadow:0 0 5px rgba(255,214,100,.9),0 0 14px rgba(255,138,31,.8)}
+.card:hover p,.card:hover svg{animation:txtFlick 1.76s steps(1,end) infinite}
+.card svg{width:56px;height:56px;margin-bottom:16px;stroke:var(--orange);fill:none;stroke-width:1.2;overflow:visible;
+  shape-rendering:crispEdges;filter:drop-shadow(0 0 5px rgba(255,138,31,.7));transition:transform .2s steps(3)}
+.card:hover svg{transform:scale(1.15);filter:drop-shadow(0 0 3px #ffd664) drop-shadow(0 0 12px #ff8a1f)}
+.card .f{fill:var(--orange);stroke:none}
+.flow{stroke-dasharray:1.5 1;animation:dash .8s linear infinite}
+.n{transform-box:fill-box;transform-origin:center;animation:node 2.4s steps(1) infinite;animation-delay:var(--d)}
+.led{animation:led 1.2s steps(1) infinite;animation-delay:var(--d)}
+.ld{transform-box:fill-box;transform-origin:left;animation:load 2.4s steps(6) infinite;animation-delay:var(--d)}
+.card .cur{fill:var(--cream);animation:blink 1s steps(1) infinite}
+.pk{fill:var(--cream);stroke:none}
+footer{padding:0 20px 32px;text-align:center;font-size:.55rem;color:#a4653a}
+
+/* ---------- ANIMATIONS ---------- */
+/* 16 frames x 110ms, copied from the gif */
+@keyframes lineP{0%{background:#f07624}6.25%{background:#fda83b}50%{background:#f07624}56.25%{background:#c85620}100%{background:#c85620}}
+@keyframes offT{0%{opacity:1}18.75%{opacity:0}25%{opacity:1}31.25%{opacity:0}37.5%{opacity:1}100%{opacity:1}}
+@keyframes offV{0%{opacity:1}68.75%{opacity:0}75%{opacity:1}81.25%{opacity:0}87.5%{opacity:1}100%{opacity:1}}
+@keyframes offS{0%{opacity:1}81.25%{opacity:0}87.5%{opacity:1}100%{opacity:1}}
+/* same 16-frame rhythm as the title: dim at frames 3 and 5 */
+@keyframes cardNeon{0%{color:#f07624;opacity:1}6.25%{color:#fda83b;opacity:1}18.75%{color:#fda83b;opacity:.15}25%{color:#fda83b;opacity:1}31.25%{color:#fda83b;opacity:.15}37.5%{color:#fda83b;opacity:1}50%{color:#f07624;opacity:1}56.25%{color:#c85620;opacity:.9}100%{color:#c85620;opacity:.9}}
+@keyframes txtFlick{0%{opacity:1}18.75%{opacity:.3}25%{opacity:1}31.25%{opacity:.3}37.5%{opacity:1}100%{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes blink{50%{opacity:0}}
+@keyframes sun{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+@keyframes twinkle{0%,70%{background:var(--gold)}80%,90%{background:#35191b}}
+@keyframes dash{to{stroke-dashoffset:-2.5}}
+@keyframes node{0%{fill:var(--cream);transform:scale(1.5)}20%,100%{fill:var(--orange);transform:scale(1)}}
+@keyframes led{0%,50%{fill:var(--cream)}51%,100%{fill:var(--panel)}}
+@keyframes load{0%,100%{transform:scaleX(.15)}50%{transform:scaleX(1)}}
+@media (min-width:900px){
+  .hero{--sh:clamp(210px,30vh,340px);min-height:94vh;padding:4vh 4vw var(--sh)}
+  .sun{left:72%;bottom:4vh;width:clamp(130px,11vw,220px)}
+  .tag{margin-top:clamp(32px,5vh,56px);font-size:clamp(.9rem,1.3vw,1.4rem)}
+  main{max-width:min(1500px,92vw);padding-bottom:80px}
+  .intro{max-width:980px;margin:clamp(56px,6vw,96px) auto 0;font-size:clamp(1.3rem,1.7vw,2rem);border-width:4px}
+  .intro pre{padding:clamp(22px,2.4vw,36px)}
+  .grid{grid-template-columns:repeat(4,1fr);gap:clamp(22px,2.2vw,36px);margin-top:clamp(28px,3vw,48px)}
+  .card{padding:clamp(36px,4vw,64px) 20px clamp(30px,3.4vw,52px);font-size:clamp(.7rem,1vw,1.05rem);border-width:4px}
+  .card svg{width:clamp(80px,7.5vw,128px);height:clamp(80px,7.5vw,128px);margin-bottom:clamp(20px,2vw,32px)}
+  .card::after{inset:-4px;border-width:4px}
+  footer{font-size:.8rem;padding-bottom:48px}
+}
+@media (max-width:480px){.grid{gap:12px}.sun{left:62%}}
+@media (prefers-reduced-motion:reduce){*,*::after{animation:none!important;transition:none!important}.pk{display:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="logo">
+    <div class="line"></div>
+    <h1 class="name" aria-label="INTITA University">
+      <span class="row" aria-hidden="true"><span class="L" data-c="I">I</span><span class="L" data-c="N">N</span><span class="L fT" data-c="T">T</span><span class="L" data-c="I">I</span><span class="L" data-c="T">T</span><span class="L" data-c="A">A</span></span>
+      <span class="row sub" aria-hidden="true"><span class="L" data-c="U">U</span><span class="L" data-c="N">N</span><span class="L" data-c="I">I</span><span class="L fV" data-c="V">V</span><span class="L" data-c="E">E</span><span class="L" data-c="R">R</span><span class="L fS" data-c="S">S</span><span class="L" data-c="I">I</span><span class="L" data-c="T">T</span><span class="L" data-c="Y">Y</span></span>
+    </h1>
+    <div class="line"></div>
+  </div>
+  <p class="tag">Computer Science student<i></i></p>
+  <div class="scene" aria-hidden="true">
+    <div class="sun"></div>
+    <div class="city" id="city"></div>
+  </div>
+</header>
+
+<main>
+  <section class="intro" aria-label="About me">
+    <div class="win"><span class="d"></span><span class="d"></span><span class="d"></span><b>intro.py</b></div>
+    <pre><code><span class="ln"><span class="t-b">print</span>(<span class="t-s">"Hello everyone!"</span>)</span><span class="ln"><span class="t-v">name</span> <span class="t-o">=</span> <span class="t-s">"Oleksandr"</span></span><span class="ln"><span class="t-v">major</span> <span class="t-o">=</span> <span class="t-s">"Computer Science"</span></span><span class="ln"><span class="t-v">university</span> <span class="t-o">=</span> <span class="t-s">"INTITA University"</span></span><span class="ln"><span class="t-v">is_student</span> <span class="t-o">=</span> <span class="t-k">True</span></span><span class="ln">&nbsp;</span><span class="ln"><span class="t-k">if</span> <span class="t-v">is_student</span> <span class="t-k">and</span> <span class="t-v">major</span><span class="t-o">:</span></span><span class="ln">    <span class="t-b">print</span>(</span><span class="ln">        <span class="t-s">f"I'm {</span><span class="t-v">name</span><span class="t-s">} and I am a "</span></span><span class="ln">        <span class="t-s">f"{</span><span class="t-v">major</span><span class="t-s">} student in {</span><span class="t-v">university</span><span class="t-s">}."</span></span><span class="ln">    )</span><span class="ln">    <span class="t-b">print</span>(<span class="t-s">"You can see my specializations below"</span>)<span class="cur2"></span></span></code></pre>
+  </section>
+
+  <section class="grid">
+    <article class="card" style="--i:0">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <path class="flow" d="M3 3.5H7M3 8H7M3 12.5H7M7 3.5L11 6M7 8L11 6M7 8L11 10M7 12.5L11 10M11 6H14M11 10H14"/>
+        <rect class="f n" style="--d:0s" x="1" y="2.5" width="2" height="2"/><rect class="f n" style="--d:.15s" x="1" y="7" width="2" height="2"/>
+        <rect class="f n" style="--d:.3s" x="1" y="11.5" width="2" height="2"/><rect class="f n" style="--d:.8s" x="10" y="5" width="2" height="2"/>
+        <rect class="f n" style="--d:.95s" x="10" y="9" width="2" height="2"/><rect class="f n" style="--d:1.5s" x="13" y="7" width="2" height="2"/>
+      </svg>
+      <p>Machine<br>Learning</p>
+    </article>
+    <article class="card" style="--i:1">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <g style="stroke-width:.8"><rect x="2.5" y="1.5" width="11" height="3"/><rect x="2.5" y="6.1" width="11" height="3"/><rect x="2.5" y="10.7" width="11" height="3"/></g>
+        <rect class="f led" style="--d:0s" x="4" y="2.5" width="1" height="1"/><rect class="f led" style="--d:.4s" x="4" y="7.1" width="1" height="1"/><rect class="f led" style="--d:.8s" x="4" y="11.7" width="1" height="1"/>
+        <rect class="f ld" style="--d:0s" x="6.5" y="2.5" width="5.5" height="1"/><rect class="f ld" style="--d:.6s" x="6.5" y="7.1" width="5.5" height="1"/><rect class="f ld" style="--d:1.2s" x="6.5" y="11.7" width="5.5" height="1"/>
+      </svg>
+      <p>Backend Web<br>Development</p>
+    </article>
+    <article class="card" style="--i:2">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M2.5 3.5L7 8L2.5 12.5"/><rect class="f cur" x="9" y="11" width="5" height="1.6"/>
+      </svg>
+      <p>Coding<br>in Python</p>
+    </article>
+    <article class="card" style="--i:3">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <path class="flow" d="M8 4V8M8 8L4 11M8 8L12 11M4 11H12"/>
+        <rect class="f n" style="--d:0s" x="6.5" y="1.5" width="3" height="3"/><rect class="f n" style="--d:2.4s" x="2.5" y="10.5" width="3" height="3"/>
+        <rect class="f n" style="--d:1.2s" x="10.5" y="10.5" width="3" height="3"/><rect class="f n" style="--d:1s" x="7" y="7" width="2" height="2"/>
+        <rect class="pk" x="-.6" y="-.6" width="1.2" height="1.2"><animateMotion dur="2.4s" repeatCount="indefinite" path="M8 3 L8 8 L4 12"/></rect>
+        <rect class="pk" x="-.6" y="-.6" width="1.2" height="1.2"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M8 3 L8 8 L12 12"/></rect>
+      </svg>
+      <p>Computer<br>Networks</p>
+    </article>
+  </section>
+</main>
+
+<footer>&copy; 2026</footer>
+
+<script>
+(function(){
+  var c=document.getElementById("city"),t;
+  function build(){
+    c.innerHTML="";
+    var w=window.innerWidth,k=w>=900?Math.max(1,Math.min(1.7,c.parentElement.clientHeight/240)):1,used=0,seed=7;
+    c.style.setProperty("--k",k);
+    function r(){seed=(seed*9301+49297)%233280;return seed/233280}
+    while(used<w+80*k){
+      var bw=Math.round((44+Math.floor(r()*40))*k),bh=Math.round((70+Math.floor(r()*130))*k);
+      var cols=Math.max(2,Math.floor((bw-12*k)/(12*k)));
+      var b=document.createElement("div");b.className="b";
+      b.style.width=bw+"px";b.style.height=bh+"px";
+      b.style.gridTemplateColumns="repeat("+cols+","+(6*k)+"px)";
+      b.style.justifyContent="space-around";
+      var n=cols*Math.floor((bh-16*k)/(14*k));
+      for(var i=0;i<n;i++){
+        var sp=document.createElement("span");sp.className="w";
+        var x=r();
+        if(x>.55){sp.className+=" on"}
+        if(x>.8){sp.className+=" tw";sp.style.animationDelay=(r()*3).toFixed(2)+"s"}
+        b.appendChild(sp);
+      }
+      c.appendChild(b);used+=bw+3;
+    }
+  }
+  build();
+  window.addEventListener("resize",function(){clearTimeout(t);t=setTimeout(build,200)});
+})();
+</script>
+<script>
+/* fit the title to the real width of the hero, on any screen or preview pane */
+(function(){
+  var hero=document.querySelector(".hero"),logo=document.querySelector(".logo");
+  function fit(){
+    var cs=getComputedStyle(hero);
+    var w=hero.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+    var t=Math.max(22,Math.min(w*0.85/6,168));
+    logo.style.setProperty("--t",t+"px");
+  }
+  fit();
+  window.addEventListener("resize",fit);
+  if(window.ResizeObserver){new ResizeObserver(fit).observe(hero)}
+})();
+</script>
+</body>
+</html>
